@@ -1,13 +1,6 @@
 var pictureSource;
 var destinationType;
 
-document.addEventListener("deviceready", onDeviceReady, false);
-
-function onDeviceReady () {
-    pictureSource = navigator.camera.PictureSourceType;
-    destinationType = navigator.camera.DestinationType;
-}
-
 function onPhotoDataSuccess () {
     var smallImage = document.getElementById('smallImage');
     smallImage.style.display = 'block';

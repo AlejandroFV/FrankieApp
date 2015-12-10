@@ -3,7 +3,7 @@
     <head>
         <title>Hello World</title>
     </head>
-    <body>
+    <body onload="onLoad()">
         <button onclick="capturePhoto();">Capture Photo</button> <br>
 		<button onclick="capturePhotoEdit();">Capture Editable Photo</button> <br>
 		<button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
@@ -12,5 +12,7 @@
 		<img style="display:none;" id="largeImage" src="" />
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/camera.js"></script>
+        <script type="text/javascript" src="js/events.js"></script>
+        <script src="js/jquery.mobile-1.4.5.min.js" charset="utf-8"></script>
     </body>
 </html>
