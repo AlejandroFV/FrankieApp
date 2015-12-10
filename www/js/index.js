@@ -6,12 +6,21 @@ var candidate_to_delete = false;
 document.addEventListener('deviceready',onDeviceReady);
 
 function onDeviceReady(){
+	sendNotification();
 	window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
 	if (window.requestFileSystem) {
 		initFileSystem();
 	} else {
 		swal("Ouch...","Este dispositivo no soporta el API de archivos. La aplicación no funcionará.","error");
 	}
+}
+
+function sendNotification(){
+	cordova.plugins.notification.local.schedule({
+    	title: "New Message",
+    	message: "Hi, are you ready? We are waiting.",
+    	every: "minute" // every 30 minutes
+	});
 }
 
 function initFileSystem(){
@@ -72,11 +81,8 @@ function onNoteClick(e){
 }
 
 function viewNote() {
-    /*
     var url = "view.html?title=" + encodeURIComponent(last_clicked_note.html());
     window.location.href = url;
-    */
-    swal("Wuju!","Doblecliqueaste esa nota :D","success");
 }
 
 function removeNote(){
@@ -95,33 +101,4 @@ function removeNote(){
 	else{
 		swal("¡Hey!","No hay ingún elemento seleccionado para eliminar.","error");
 	}
-}
-
-function toArray(list) {
-  return Array.prototype.slice.call(list || [], 0);
-}
-
-function errorHandler(error) {
-	var message = '';
-	switch (error.code) {
-		case FileError.SECURITY_ERR:
-			message = 'Security Error';
-			break;
-		case FileError.NOT_FOUND_ERR:
-			message = 'Not Found Error';
-			break;
-		case FileError.QUOTA_EXCEEDED_ERR:
-			message = 'Quota Exceeded Error';
-			break;
-		case FileError.INVALID_MODIFICATION_ERR:
-			message = 'Invalid Modification Error';
-			break;
-		case FileError.INVALID_STATE_ERR:
-			message = 'Invalid State Error';
-			break;
-		default:
-			message = 'Unknown Error UAY';
-			break;
-	}
-	alert(message);
 }
