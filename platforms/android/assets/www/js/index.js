@@ -6,12 +6,21 @@ var candidate_to_delete = false;
 document.addEventListener('deviceready',onDeviceReady);
 
 function onDeviceReady(){
+	sendNotification();
 	window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
 	if (window.requestFileSystem) {
 		initFileSystem();
 	} else {
 		swal("Ouch...","Este dispositivo no soporta el API de archivos. La aplicación no funcionará.","error");
 	}
+}
+
+function sendNotification(){
+	cordova.plugins.notification.local.schedule({
+    	title: "New Message",
+    	message: "Hi, are you ready? We are waiting.",
+    	every: "minute" // every 30 minutes
+	});
 }
 
 function initFileSystem(){
