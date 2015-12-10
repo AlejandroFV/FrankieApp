@@ -1,64 +1,64 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Materilize</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/jquery.mobile.min.css">
-        <link rel="stylesheet" href="vendor/waves/waves.min.css" />
-        <link rel="stylesheet" href="vendor/wow/animate.css" />
-        <link rel="stylesheet" href="css/nativedroid2.css" />
-        <link rel="stylesheet" href="css/sweetalert.css">
-        <link href="css/MaterialIcons.css" rel="stylesheet">
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<head>
+    <meta charset="UTF-8">
+    <title>Recuerdame!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/jquery.mobile.min.css">
+    <link rel="stylesheet" href="vendor/waves/waves.min.css" />
+    <link rel="stylesheet" href="vendor/wow/animate.css" />
+    <link rel="stylesheet" href="css/nativedroid2.css" />
+    <link rel="stylesheet" href="css/sweetalert.css">
+    <link href="css/MaterialIcons.css" rel="stylesheet">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-        <script src="js/jquery-1.11.3.js"></script>
-        <script src="js/jquery-ui.min.js"></script>
-        <script src="js/jquery.mobile-1.4.5.min.js"></script>
-        <script src="vendor/waves/waves.min.js"></script>
-        <script src="vendor/wow/wow.min.js"></script>
-        <script src="nd2settings.js"></script>
-        <script src="js/nativedroid2.js"></script>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/deviceReady.js"></script>
-        <script type="text/javascript" src="js/sweetalert.min.js"></script>
-    </head>
-    <body>
-        <header>
-            <div data-role="header" data-position="fixed" class="wow fadeIn">
-                <a href="#bottomsheetblock" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-more-vert"></i></a>
-                <a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
-                <h1 class="wow fadeIn" data-wow-delay='0.4s'>Header & Footer</h1>
-            </div>
-        </header>
-        <section>
-            <ul class="collection">
-            </ul>
-        </section>
-        <footer>
-            <div data-role="footer" data-position="fixed">
-                <div class="row center-xs">
-                    <div class="col-xs-4">
-                        <div class="box">
-                            <a href="#" class="ui-btn ui-mini nd2-btn-icon-block"><i class='zmdi zmdi-edit'></i> edit</a>
-                        </div>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="vendor/waves/waves.min.js"></script>
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="js/nativedroid2.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/deviceReady.js"></script>
+    <script type="text/javascript" src="js/sweetalert.min.js"></script>
+</head>
+<body>
+    <header>
+        <div data-role="header" data-position="fixed" class="wow fadeIn">
+            <a href="#bottomsheetblock" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-more-vert"></i></a>
+            <a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+            <h1 class="wow fadeIn" data-wow-delay='0.4s'>Header & Footer</h1>
+        </div>
+    </header>
+    <section>
+        <ul class="collection">
+        </ul>
+    </section>
+    <footer>
+        <div data-role="footer" data-position="fixed">
+            <div class="row center-xs">
+                <div class="col-xs-4">
+                    <div class="box">
+                        <a href="#" class="ui-btn ui-mini nd2-btn-icon-block"><i class='zmdi zmdi-edit'></i> edit</a>
                     </div>
-                    <div class="col-xs-4">
-                        <div class="box">
-                            <a href="new.html" class="ui-btn ui-mini nd2-btn-icon-block"><i class='zmdi zmdi-plus'></i> add</a>
-                        </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="box">
+                        <a href="new.html" class="ui-btn ui-mini nd2-btn-icon-block"><i class='zmdi zmdi-plus'></i> add</a>
                     </div>
-                    <div class="col-xs-4">
-                        <div class="box">
-                            <a id="delete_note" href="#" class="ui-btn ui-mini nd2-btn-icon-block"><i class='zmdi zmdi-minus'></i> remove</a>
-                        </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="box">
+                        <a id="delete_note" href="#" class="ui-btn ui-mini nd2-btn-icon-block"><i class='zmdi zmdi-minus'></i> remove</a>
                     </div>
                 </div>
             </div>
-        </footer>
-    </body>
-    <script type="text/javascript" src="js/index.js"></script>
+        </div>
+    </footer>
+</body>
+<script type="text/javascript" src="js/shared.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
 </html>

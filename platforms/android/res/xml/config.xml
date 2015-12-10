@@ -20,7 +20,7 @@
     </feature>
     <preference name="AndroidPersistentFileLocation" value="Internal" />
     <allow-intent href="market:*" />
-    <name>FrankieApp</name>
+    <name>Recuerdame!</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>
