@@ -22,4 +22,6 @@ function saveNote(title, content){
 			}, errorHandler);
 		}, errorHandler);
 	});
+	console.log(phones);
+	window.localStorage.setItem(title, );
 }

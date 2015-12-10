@@ -8,5 +8,6 @@ function onDeviceReady() {
 		//tx.executeSql('DROP TABLE IF EXISTS phones');
 		tx.executeSql('CREATE TABLE IF NOT EXISTS users_table (id integer primary key, user_name varchar, user_password varchar)');
 		tx.executeSql('CREATE TABLE IF NOT EXISTS phones (id integer primary key, name_phone varchar, number_phone varchar)');
+		window.localStorage.clear();
 	});
 }
