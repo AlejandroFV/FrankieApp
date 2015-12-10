@@ -25,7 +25,6 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/deviceReady.js"></script>
         <script type="text/javascript" src="js/sweetalert.min.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
     </head>
     <body>
         <header>
@@ -36,7 +35,8 @@
             </div>
         </header>
         <section>
-            
+            <ul class="collection">
+            </ul>
         </section>
         <footer>
             <div data-role="footer" data-position="fixed">
@@ -48,16 +48,17 @@
                     </div>
                     <div class="col-xs-4">
                         <div class="box">
-                            <a href="#" class="ui-btn ui-mini nd2-btn-icon-block"><i class='zmdi zmdi-plus'></i> add</a>
+                            <a href="new.html" class="ui-btn ui-mini nd2-btn-icon-block"><i class='zmdi zmdi-plus'></i> add</a>
                         </div>
                     </div>
                     <div class="col-xs-4">
                         <div class="box">
-                            <a href="#" class="ui-btn ui-mini nd2-btn-icon-block"><i class='zmdi zmdi-minus'></i> remove</a>
+                            <a id="delete_note" href="#" class="ui-btn ui-mini nd2-btn-icon-block"><i class='zmdi zmdi-minus'></i> remove</a>
                         </div>
                     </div>
                 </div>
             </div>
         </footer>
     </body>
+    <script type="text/javascript" src="js/index.js"></script>
 </html>
