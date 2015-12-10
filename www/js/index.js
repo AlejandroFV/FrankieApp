@@ -72,11 +72,8 @@ function onNoteClick(e){
 }
 
 function viewNote() {
-    /*
     var url = "view.html?title=" + encodeURIComponent(last_clicked_note.html());
     window.location.href = url;
-    */
-    swal("Wuju!","Doblecliqueaste esa nota :D","success");
 }
 
 function removeNote(){
