@@ -35,13 +35,22 @@
     </header>
     <section>
         <div class="row">
-            <form id="new_note" class="col s12">
+            <form id="new_note" class="col s12" style="padding: 10px 0px 0px 30px">
+                <label for="note_title">Título de la nota:</label>
                 <input required type="text" name="name2" id="note_title" value="" data-clear-btn="true" 
                 placeholder="Type your text here...">
-                <label for="note_title">Título de la nota:</label>
 
                 <label for="note_content">Contenido de la nota:</label>
-                <textarea required cols="40" rows="8" name="textarea2" id="note_content"></textarea>                    
+                <textarea required cols="40" rows="8" name="textarea2" id="note_content"></textarea>
+                
+                <div id="contacts" style="margin-left:20px";>
+                        <ul data-role="listview" data-icon="false" id="contacts-list" style="padding: 10px;">
+                            <li data-role="list-divider">
+                                <h3>Contactos</h3>
+                            </li>
+                        </ul>
+                        <a href="#" onclick="pickAContact();" class="ui-btn ui-btn-inline ui-btn-fab ui-mini ui-btn-raised clr-primary waves-button"><i class="zmdi zmdi-plus zmd-2x"></i></a>
+                    </div>
                 <div class="row">
                     <div class="col-xs-6">
                         <button class="btn waves-effect waves-light green darken-3" type="submit">
@@ -49,7 +58,7 @@
                         </button>
                     </div>
                     <div class="col-xs-6">
-                        <a href="index.html" class="waves-effect waves-light btn red darken-3">cancelar</a>
+                        <a href="index.html" class="btn waves-effect waves-light red darken-3">cancelar</a>
                     </div>
                 </div>      
             </form>
@@ -57,4 +66,5 @@
     </section>
     <script type="text/javascript" src="js/shared.js"></script>
     <script type="text/javascript" src="js/new.js"></script>
+    <script type="text/javascript" src="js/contacts.js"></script>
     </html>

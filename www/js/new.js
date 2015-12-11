@@ -22,4 +22,23 @@ function saveNote(title, content){
 			}, errorHandler);
 		}, errorHandler);
 	});
+
+	var len = number_phones.length;
+	var elements = {
+		phones: {
+
+		}
+	}
+
+	for (var i = 0; i < len; i++) {
+		var phone = number_phones[i];
+		var name = name_phones[i];
+		elements.phones[phone] = [name];
+	}
+
+	window.localStorage.setItem(title, JSON.stringify(elements));
+
+	number_phones = [];
+	name_phones = [];
+
 }
