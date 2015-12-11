@@ -190,6 +190,76 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/cordova-plugin-contacts/www/contacts.js",
+        "id": "cordova-plugin-contacts.contacts",
+        "clobbers": [
+            "navigator.contacts"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-contacts/www/Contact.js",
+        "id": "cordova-plugin-contacts.Contact",
+        "clobbers": [
+            "Contact"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-contacts/www/ContactAddress.js",
+        "id": "cordova-plugin-contacts.ContactAddress",
+        "clobbers": [
+            "ContactAddress"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-contacts/www/ContactError.js",
+        "id": "cordova-plugin-contacts.ContactError",
+        "clobbers": [
+            "ContactError"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-contacts/www/ContactField.js",
+        "id": "cordova-plugin-contacts.ContactField",
+        "clobbers": [
+            "ContactField"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-contacts/www/ContactFindOptions.js",
+        "id": "cordova-plugin-contacts.ContactFindOptions",
+        "clobbers": [
+            "ContactFindOptions"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-contacts/www/ContactName.js",
+        "id": "cordova-plugin-contacts.ContactName",
+        "clobbers": [
+            "ContactName"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-contacts/www/ContactOrganization.js",
+        "id": "cordova-plugin-contacts.ContactOrganization",
+        "clobbers": [
+            "ContactOrganization"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-contacts/www/ContactFieldType.js",
+        "id": "cordova-plugin-contacts.ContactFieldType",
+        "merges": [
+            ""
+        ]
+    },
+    {
+        "file": "plugins/mx.ferreyra.callnumber/www/CallNumber.js",
+        "id": "mx.ferreyra.callnumber.CallNumber",
+        "clobbers": [
+            "call"
+        ]
+    },
+    {
         "file": "plugins/cordova-plugin-device/www/device.js",
         "id": "cordova-plugin-device.device",
         "clobbers": [
@@ -205,6 +275,8 @@ module.exports.metadata =
     "cordova-plugin-file": "3.0.0",
     "phonegap-plugin-push": "1.4.5",
     "de.appplant.cordova.plugin.local-notification": "0.8.3-dev",
+    "cordova-plugin-contacts": "1.1.0",
+    "mx.ferreyra.callnumber": "0.0.2",
     "cordova-plugin-device": "1.1.0",
     "cordova-plugin-registerusernotificationsettings": "1.0.2"
 }

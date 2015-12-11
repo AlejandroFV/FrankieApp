@@ -42,9 +42,8 @@ function showContent(fileName){
 	var retrievedObject = window.localStorage.getItem("/MyNotes/" + fileName + ".txt");
 	var divView = $("#contacts-list-view");
 	var objectReady = JSON.parse(retrievedObject)
+	var i = 0;
 	for ( key in objectReady.phones ) {
-		console.log(key);
-		console.log(objectReady.phones[key]);
 		divView.append(
 			"<li>" +
 				"<h2>" + objectReady.phones[key] + "</h2>" +
@@ -56,13 +55,14 @@ function showContent(fileName){
 						"><i class='zmdi zmdi-phone zmd-2x'></i></a>" +
 					"</div>" +
 					"<div class='ui-block-b'>" +
-						"<a href='#' onclick='deletePhoneNumber(\""+key+"\")'"+
+						"<a href='#' onclick='deletePhoneNumber(\""+i+"\")'"+
 						"class='ui-btn ui-btn-inline ui-mini waves-effect waves-button waves-effect waves-button'"+
 						"><i class='zmdi zmdi-delete zmd-2x'></i></a>" +
 					"</div>" +
 				"</div>" +
 			"</li>"
 		);
+		i++;
 	}
 	
 }

@@ -2,6 +2,7 @@ var last_click_time = new Date().getTime();
 var last_clicked_note;
 var filesystem = null;
 var candidate_to_delete = false;
+var contents = [];
 
 document.addEventListener('deviceready',onDeviceReady);
 
@@ -29,7 +30,11 @@ function listFiles() {
 		var fetchEntries = function() {
 			dirReader.readEntries(function(results) {
 				if (!results.length) {
-					displayEntries(entries.sort().reverse());
+					entries = entries.sort().reverse();
+					for (var i = 0; i < entries.length; i++) {
+						getFileContent(entries[i].name.replace('.txt',''));
+					}
+					displayEntries(entries);
 				} else {
 					entries = entries.concat(results);
 					fetchEntries();
@@ -41,23 +46,36 @@ function listFiles() {
 }
 
 function displayEntries(entries) {
-	var fileList = $(".collection");
 	for (var i = 0; i < entries.length; i++) {
-		var li = document.createElement('li');
-		var h2 = document.createElement('h2');
-		var p = document.createElement('p');
-		console.log(entries[i]);
-		h2.innerText = entries[i].name.replace('.txt','');
-		p.innerText = "ID >> " + new Date().getTime() + " <<";
-		li.appendChild(h2);
-		li.appendChild(p);
-		li.setAttribute("id",h2.innerText);
-		li.className = "ui-li-static ui-body-inherit";
-		li.addEventListener('click',onNoteClick);
-		fileList.append(li);
-		fileList.append(li);
-		fileList.append(li);
+		getFileContent(entries[i].replace('.txt',''));
 	};
+}
+
+function getFileContent(fileName){
+	var fileList = $(".collection");
+	window.requestFileSystem(window.PERSISTENT, 1024, function(filesystem) {
+		filesystem.root.getFile('/MyNotes/' + fileName + '.txt', {}, function(fileEntry) {
+			fileEntry.file(function(file) {
+				var reader = new FileReader();
+				reader.onloadend = function(e) {
+					var li = document.createElement('li');
+					var h3 = document.createElement('h3');
+					var p = document.createElement('p');
+					h3.innerText = fileName;
+					p.innerText = this.result;
+					li.appendChild(h3);
+					li.appendChild(p);
+					li.setAttribute("id",h3.innerText);
+					li.className = "ui-li-static ui-body-inherit";
+					li.addEventListener('click',onNoteClick);
+					fileList.append(li);
+					fileList.append(li);
+					fileList.append(li);
+				};
+				reader.readAsText(file);
+			}, errorHandler);
+		}, errorHandler);
+	});
 }
 
 $(".collection-item").click(onNoteClick);
