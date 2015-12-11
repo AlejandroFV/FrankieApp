@@ -1,3 +1,10 @@
+function sendNotification(name,message){
+	cordova.plugins.notification.local.schedule({
+    	title: name,
+    	message: message,
+	});
+}
+
 function errorHandler(error) {
 	var message = '';
 	switch (error.code) {
