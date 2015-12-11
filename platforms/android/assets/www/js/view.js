@@ -37,8 +37,34 @@ function showContent(fileName){
 				reader.readAsText(file);
 			}, errorHandler);
 		}, errorHandler);
-
 	});
+
+	var retrievedObject = window.localStorage.getItem("/MyNotes/" + fileName + ".txt");
+	var divView = $("#contacts-list-view");
+	var objectReady = JSON.parse(retrievedObject)
+	var i = 0;
+	for ( key in objectReady.phones ) {
+		divView.append(
+			"<li>" +
+				"<h2>" + objectReady.phones[key] + "</h2>" +
+				"<span>" + key + "</span>" +
+				"<div class='ui-grid-a'>" +
+					"<div class='ui-block-a'>" +
+						"<a hreff='#' onclick='callSomething(\""+key+"\")'"+
+						"class='ui-btn ui-btn-inline ui-mini waves-effect waves-button waves-effect waves-button'"+
+						"><i class='zmdi zmdi-phone zmd-2x'></i></a>" +
+					"</div>" +
+					"<div class='ui-block-b'>" +
+						"<a href='#' onclick='deletePhoneNumber(\""+i+"\")'"+
+						"class='ui-btn ui-btn-inline ui-mini waves-effect waves-button waves-effect waves-button'"+
+						"><i class='zmdi zmdi-delete zmd-2x'></i></a>" +
+					"</div>" +
+				"</div>" +
+			"</li>"
+		);
+		i++;
+	}
+	
 }
 
 $('#new_note').submit(function(e){
