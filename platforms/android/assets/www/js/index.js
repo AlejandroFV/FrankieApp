@@ -6,21 +6,12 @@ var candidate_to_delete = false;
 document.addEventListener('deviceready',onDeviceReady);
 
 function onDeviceReady(){
-	sendNotification();
 	window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
 	if (window.requestFileSystem) {
 		initFileSystem();
 	} else {
 		swal("Ouch...","Este dispositivo no soporta el API de archivos. La aplicación no funcionará.","error");
 	}
-}
-
-function sendNotification(){
-	cordova.plugins.notification.local.schedule({
-    	title: "New Message",
-    	message: "Hi, are you ready? We are waiting.",
-    	every: "minute" // every 30 minutes
-	});
 }
 
 function initFileSystem(){
@@ -53,10 +44,18 @@ function displayEntries(entries) {
 	var fileList = $(".collection");
 	for (var i = 0; i < entries.length; i++) {
 		var li = document.createElement('li');
-		li.innerText = entries[i].name.replace('.txt','');
-		console.log(entries[i].fullPath);
-		li.className = "collection-item";
+		var h2 = document.createElement('h2');
+		var p = document.createElement('p');
+		console.log(entries[i]);
+		h2.innerText = entries[i].name.replace('.txt','');
+		p.innerText = "ID >> " + new Date().getTime() + " <<";
+		li.appendChild(h2);
+		li.appendChild(p);
+		li.setAttribute("id",h2.innerText);
+		li.className = "ui-li-static ui-body-inherit";
 		li.addEventListener('click',onNoteClick);
+		fileList.append(li);
+		fileList.append(li);
 		fileList.append(li);
 	};
 }
@@ -66,9 +65,9 @@ $(".collection-item").click(onNoteClick);
 $("#delete_note").click(removeNote);
 
 function onNoteClick(e){
-	$(".collection-item").css("background-color","#fff");
+	$("li").css("background-color","#fff");
 	var new_click_time = e['timeStamp'];
-	var new_clicked_note = $(this); 
+	var new_clicked_note = $(this);
 	if (new_click_time && new_clicked_note.is(last_clicked_note) && (new_click_time - last_click_time) < 250) {
 		$(this).css("background-color","grey");
 		viewNote();
@@ -81,16 +80,16 @@ function onNoteClick(e){
 }
 
 function viewNote() {
-    var url = "view.html?title=" + encodeURIComponent(last_clicked_note.html());
+    var url = "view.html?title=" + encodeURIComponent(last_clicked_note.attr("id"));
     window.location.href = url;
 }
 
 function removeNote(){
 	if(candidate_to_delete){
-		if(confirm("¿Desea borrar esta nota? " + last_clicked_note.html())){
-			filesystem.root.getFile('/MyNotes/' + last_clicked_note.html() + '.txt', {}, function(fileEntry) {
+		if(confirm("¿Desea borrar esta nota? " + last_clicked_note.attr("id"))){
+			filesystem.root.getFile('/MyNotes/' + last_clicked_note.attr("id") + '.txt', {}, function(fileEntry) {
 				fileEntry.remove(function() {
-					alert("Nota eliminado");
+					swal("¡Wuju","Nota eliminado","success");
 				}, errorHandler);
 			}, errorHandler);
 			last_clicked_note.remove();

@@ -34,25 +34,23 @@
         </div>
     </header>
     <section>
-        <ul class="collection">
+        <ul class="collection" data-role="listview" data-icon="false">
+            <li data-role="list-divider">
+                Recordatorios
+            </li>
         </ul>
     </section>
     <footer>
         <div data-role="footer" data-position="fixed">
             <div class="row center-xs">
-                <div class="col-xs-4">
+                <div class="col-xs-6">
                     <div class="box">
-                        <a href="#" class="ui-btn ui-mini nd2-btn-icon-block"><i class='zmdi zmdi-edit'></i> edit</a>
+                        <a href="new.html" class="ui-btn ui-btn-icon-left"><i class='zmdi zmdi-plus'></i> Nuevo</a>
                     </div>
                 </div>
-                <div class="col-xs-4">
+                <div class="col-xs-6">
                     <div class="box">
-                        <a href="new.html" class="ui-btn ui-mini nd2-btn-icon-block"><i class='zmdi zmdi-plus'></i> add</a>
-                    </div>
-                </div>
-                <div class="col-xs-4">
-                    <div class="box">
-                        <a id="delete_note" href="#" class="ui-btn ui-mini nd2-btn-icon-block"><i class='zmdi zmdi-minus'></i> remove</a>
+                        <a id="delete_note" href="#" class="ui-btn ui-btn-icon-left clr-warning"><i class='zmdi zmdi-minus'></i> Borrar</a>
                     </div>
                 </div>
             </div>
